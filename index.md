@@ -5,7 +5,7 @@ tags: fpga vga verilog
 categories: demo
 ---
 
-Add a short welcome message or introduction here. Aim to get the viewer interested in what follows! Guideline: 1 or 2 sentences.
+Hello, This is my project for the module System on Chip Design and Verification (SoC). In this project I use VIvado to create, test and build a VGA design.
 
 ## **Template VGA Design**
 ### **Project Set-Up**
