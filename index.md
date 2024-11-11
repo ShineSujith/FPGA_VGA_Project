@@ -10,6 +10,7 @@ Hello, This is my project for the module System on Chip Design and Verification 
 ## **Template VGA Design**
 ### **Project Set-Up**
 Summarise the project set-up and design flow. Include a screenshot of your own set-up, for example see the image of my Project Summary window below. Guideline 1 short paragraph.
+We were giiven a Verilog code template which included the 
 
 ![image](https://github.com/user-attachments/assets/ded24d46-4e81-489b-a733-083690a949c8)
 
