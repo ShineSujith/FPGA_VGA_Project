@@ -35,6 +35,10 @@ My original idea was to split the screen up into square 60x80 pixels to form a g
 ### **Code Adaptation**
 Briefly show how you changed the template code to display a different image. Demonstrate your understanding. Guideline: 1-2 short paragraphs.
 To achieve 
+
+For my own project code I used aspects of both templates. I stared with the stripes code and modified it to diaplay a grid instead of stripes. I also adjusted the code to only use one if statement by creating an addtional row and column register that gets incremented by 60 and 80 respectivly. By using these registers in as part of the if statments conditions and incrementing them I don't need to write an if statement for each individual square on my grid.
+
+I used the color cycle code to implement a wait and two states to the code in the first state the code alternates between black and white for each square. In the second state the colors swap black squares become white squares and vice versa.
 ### **Simulation**
 Show how you simulated your own design. Are there any things to note? Demonstrate your understanding. Add a screenshot. Guideline: 1-2 short paragraphs.
 ### **Synthesis**
