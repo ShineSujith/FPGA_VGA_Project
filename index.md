@@ -15,6 +15,9 @@ We were given a two different verilog code templates, One of the was called colo
 
 ![image](https://github.com/user-attachments/assets/ded24d46-4e81-489b-a733-083690a949c8)
 
+![image](https://github.com/user-attachments/assets/5a1233ce-f7c1-4c04-91aa-212e3d4bcbf4)
+
+
 ### **Template Code**
 Outline the structure and design of the Verilog code templates you were given. What do they do? Include reference to how a VGA interface works. Guideline: 2/3 short paragraphs, consider including screenshot(s).
 The first template (color cycle) used a switch statement to change the current state of thr code. Once the entire screen (480x640) was colored by writing a 12 bit value to the color register it would change state to a different color. The first four bit of the regiter was the red value, the middle four are the green value and the last four bits are the blue value. A count was used to wait a few seconds before changing the state so it would be visable to the human eye.
@@ -55,6 +58,10 @@ If you get your own design working on the Basys3 board, take a picture! Guidelin
 ![processed-5974133D-C640-4B49-8A11-CE0A13A8515F](https://github.com/user-attachments/assets/5cfb9453-f5fd-4bba-9c31-f79f925ccbaa)
 ![processed-97377106-6E61-469B-B2B8-5B9D03F63449](https://github.com/user-attachments/assets/f22b5fc4-cbbe-4f38-8e16-a34c85d390f3)
 ![processed-FA5F6EB5-6C5E-40D0-AD3D-6E7DCAEFC484](https://github.com/user-attachments/assets/9264efcc-ed4b-462f-98cf-190f99cb69cb)
+
+## **References**
+[1] M. Lynch, “SoC”, Lecture, ATU, Galway, 2024.
+
 
 ## **More Markdown Basics**
 This is a paragraph. Add an empty line to start a new paragraph.
