@@ -18,7 +18,6 @@ To start we were given two verilog code templates along with a testbench and a d
 
 ![image](https://github.com/user-attachments/assets/5a1233ce-f7c1-4c04-91aa-212e3d4bcbf4)
 
-
 ### **Template Code**
 Outline the structure and design of the Verilog code templates you were given. What do they do? Include reference to how a VGA interface works. Guideline: 2/3 short paragraphs, consider including screenshot(s). 
 
@@ -50,14 +49,14 @@ Describe the synthesis and implementation processes. Consider including 1/2 usef
 ![processed-28B6500B-BBC0-4A91-9F7F-55FD42A9083C](https://github.com/user-attachments/assets/63b79e85-6e86-4438-b18c-0f44fe19c3a2)
 
 color stripes
+
 ![image](https://github.com/user-attachments/assets/576dd309-73ae-4b3d-9a01-0b93a6a981fd)
+
 ![image](https://github.com/user-attachments/assets/d88832a5-3f94-467c-9017-f62e7fcb3e3a)
+
 ![image](https://github.com/user-attachments/assets/04db0198-13bd-41ab-b7a8-9df35fef4618)
+
 ![image](https://github.com/user-attachments/assets/6a09c287-8547-4353-9f63-115c5318a786)
-
-
-
-
 
 ### **Demonstration**
 Perhaps add a picture of your demo. Guideline: 1/2 sentences.
@@ -73,11 +72,7 @@ My original idea was to split the screen up into square 60x80 pixels to form a g
 Briefly show how you changed the template code to display a different image. Demonstrate your understanding. Guideline: 1-2 short paragraphs.
 To achieve 
 
-I thought about simply hard coding the checkered pattern which would have been very easy to acomplies however i decided agsinst it because it would be too easy and not much of a challenge, so instead I added two more registers that were updated every 60 pixels and 80 pixels to seperate the screen into 60x80 segments instead of writing an if statement for each individual square and coloring them that way. I originally tried to alternate the colors using a new register called counter which would alternate between a 1 and a 0 after each 60x80 square. I had a few issues with this approch because I wasn't updating the two registers and the count resister on the clock edge, but this wasn't the only issue. Once is fixed the syncing issue I was able to display black and white stripes that alternate. This was a step in the right direction however the were a few pixels that were incorrectly colored. The other problem was that it was stripe pattern and not a checkered one. I thought this issue would be easily fixed by changing to an odd number of squares, so I changed the size of each square from 60x80 to 96x128 pixels. This gave me the result seen in FigF after this failure I was running out of time and decided to simpify my code by not messing around with adding registers and just using the `%` (modulo) operator. By using the condition `if((row/96) % 2 == 0 && (col/128) % 2 == 0)` I could split the screen into a five stripes on both the rows and columns with each stripe being 96x480 or 640x128 pixels depending on if it is a row or column. 
-
-For my own project code I used aspects of both templates. I stared with the stripes code and modified it to diaplay a grid instead of stripes. I also adjusted the code to only use one if statement by creating an addtional row and column register that gets incremented by 60 and 80 respectivly. By using these registers in as part of the if statments conditions and incrementing them I don't need to write an if statement for each individual square on my grid.
-
-I used the color cycle code to implement a wait and two states to the code in the first state the code alternates between black and white for each square. In the second state the colors swap black squares become white squares and vice versa.
+I used the ColorStripes code as the base and incoperated a state machine and delay using `count` and `COUNT_TO` parameteres. I thought about simply hard coding the checkered pattern which would have been very easy to acomplies however i decided agsinst it because it would be too easy and not much of a challenge, so instead I added two more registers that were updated every 60 pixels and 80 pixels to seperate the screen into 60x80 segments instead of writing an if statement for each individual square and coloring them that way. I originally tried to alternate the colors using a new register called counter which would alternate between a 1 and a 0 after each 60x80 square. I had a few issues with this approch because I wasn't updating the two registers and the count resister on the clock edge, but this wasn't the only issue. Once is fixed the syncing issue I was able to display black and white stripes that alternate. This was a step in the right direction however the were a few pixels that were incorrectly colored. The other problem was that it was stripe pattern and not a checkered one. I thought this issue would be easily fixed by changing to an odd number of squares, so I changed the size of each square from 60x80 to 96x128 pixels. This gave me the result seen in FigF after this failure I was running out of time and decided to simpify my code by not messing around with adding registers and just using the `%` (modulo) operator. By using the condition `if((row/96) % 2 == 0 && (col/128) % 2 == 0)` I could split the screen into a five stripes on both the rows and columns with each stripe being 96x640 or 480x128 pixels depending on if it is a row or column. I then used the condition `if((row/96) % 2 == 0 || (col/128) % 2 == 0)` to get the other half of the checkered pattern I wanted. In the end I ran out of time and could not get an output for the checkered pattern, however if I had a few more minutes I would have had it. If I had more time all I had to do was split the rows up into five using if statements then used `%` to check if `(col/128) % 2 == 0` or `(col/128) % 2 == 1` depending on the row. 
 
 ![image](https://github.com/user-attachments/assets/f9f903d0-c7cf-4d6b-b809-cc1092bce483)
 
@@ -90,13 +85,19 @@ I used the color cycle code to implement a wait and two states to the code in th
 
 
 ### **Simulation**
+Show how you simulated your own design. Are there any things to note? Demonstrate your understanding. Add a screenshot. Guideline: 1-2 short paragraphs.
+
+Again I used the testbench to simulate the code I didn't have to make any changes to it because I didn't incorperate anything like a switch or additional registers in the end. I used the simulation from time to time usually when making consecutive smaller changes to my code, however I found it to visualise the output and what is wrong with it when it is displayed on the screen rather than just from looking at the waveforms. 
+
+For the most part there isn't much to note since its very similar to the previous ColorStripes template output. Although the output may look a little different due to the fact it is more zoomed in and I ran it for a much shorter time frame.
+
 ![image](https://github.com/user-attachments/assets/f4a5ae1b-3dc8-4fea-97a3-5993621af0ad)
 
-
-Show how you simulated your own design. Are there any things to note? Demonstrate your understanding. Add a screenshot. Guideline: 1-2 short paragraphs.
 ### **Synthesis**
 ![image](https://github.com/user-attachments/assets/025d7d50-9c1f-4d28-aec4-d050d58d5452)
+
 ![image](https://github.com/user-attachments/assets/4986a99c-51ff-4896-82cf-a1971168a189)
+
 ![image](https://github.com/user-attachments/assets/f1d2cf9b-97b7-47cf-8723-b79cb83f421c)
 
 
@@ -104,8 +105,11 @@ Show how you simulated your own design. Are there any things to note? Demonstrat
 Describe the synthesis & implementation outputs for your design, are there any differences to that of the original design? Guideline 1-2 short paragraphs.
 ### **Demonstration**
 If you get your own design working on the Basys3 board, take a picture! Guideline: 1-2 sentences.
+
 ![processed-5974133D-C640-4B49-8A11-CE0A13A8515F](https://github.com/user-attachments/assets/5cfb9453-f5fd-4bba-9c31-f79f925ccbaa)
+
 ![processed-97377106-6E61-469B-B2B8-5B9D03F63449](https://github.com/user-attachments/assets/f22b5fc4-cbbe-4f38-8e16-a34c85d390f3)
+
 ![processed-FA5F6EB5-6C5E-40D0-AD3D-6E7DCAEFC484](https://github.com/user-attachments/assets/9264efcc-ed4b-462f-98cf-190f99cb69cb)
 
 ## **References**
