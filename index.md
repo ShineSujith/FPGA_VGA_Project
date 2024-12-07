@@ -4,6 +4,7 @@ title: FPGA VGA Driver Project
 tags: fpga vga verilog
 categories: demo
 ---
+By: Shine Sujith
 
 Hello, This is my project for the module System on Chip Design and Verification (SoC). In this project I use VIvado to create, test and build a VGA design.
 
@@ -20,24 +21,31 @@ We were given a two different verilog code templates, One of the was called colo
 
 ### **Template Code**
 Outline the structure and design of the Verilog code templates you were given. What do they do? Include reference to how a VGA interface works. Guideline: 2/3 short paragraphs, consider including screenshot(s).
-The first template (color cycle) used a switch statement to change the current state of thr code. Once the entire screen (480x640) was colored by writing a 12 bit value to the color register it would change state to a different color. The first four bit of the regiter was the red value, the middle four are the green value and the last four bits are the blue value. A count was used to wait a few seconds before changing the state so it would be visable to the human eye.
+
+We were given a two different Verilog code templates, one of them was called ColorCycle which cycled through different colors on the screen, and another called ColorStripes which displays those colors as stripes (columns) side by side on the screen. 
+
+The first template (ColorCycle) used a state machine to change the current state of the code. Once the entire screen (480x640) was colored by writing a 12 bit value to the color register it would change state to a different color. The first four bit of the register represent the red value, the middle four are the green value and the last four bits are the blue value. A count was used to wait a few seconds before changing the state so it would be visible to the human eye.
 
 ![processed-81E5C9A2-7114-47F4-B86C-36D499BD9F69](https://github.com/user-attachments/assets/cc953460-1735-486a-b36c-3e098141c3f8)
 
-The stripes code uses two additional inputs row and col. These inputs represent the row and column of the current pixel. Another difference is that stripes has three 4 bit color registers instead of one 12 bit register. In stripes if statements are used to change the colors. When the col value is within a certain range it writes a four bit value to three color registers one for each of the three colors.
+The stripes code uses two additional inputs row and col. These inputs represent the row and column of the current pixel. Another difference is that stripes code uses three 4 bit color registers instead of one 12 bit register. In stripes if statements are used to change the color of the pixels. When the col value is within a certain range it writes a 4 bit value to three color registers one for each of the three colors.
 
-Both templates were similar to each other but also introduced new techniques to display an image. This was very useful when it came to creating my very own image.
+Both templates were like each other but also introduced new techniques to display an image. This was very useful when it came to creating my very own image. For example, they both had three registers to write too to change the color however one used a 12 bit register that was then split into three parts and written to three 4 bit registers on every positive clock edge while the other just assigns the three color register to another three color register on each positive clock edge.
+
 ### **Simulation**
-color cycle:
-![image](https://github.com/user-attachments/assets/030c42c9-9e93-411c-b0c7-70a5f9142dbe)
-color stripes
-![image](https://github.com/user-attachments/assets/6822c22f-86e0-46d4-9620-8cee61fd5e5f)
-
-
-
 
 Explain the simulation process. Reference any important details, include a well-selected screenshot of the simulation. Guideline: 1/2 short paragraphs.
+
+The simulation process involves using a testbench to simulate the code. By doing this we can reduce the amount of time it takes to test the code. This is because if we want to run the code on the board, we must generate a new bit stream which involves running synthesis and implementing first before programming the board. This process takes time and must be done each time we make any changes to the code. It is much easier to run a simulation which only takes a few seconds. Using the simulation, we can get an idea of how the output might look like. In FigH we can see the output of a simulation or the waveform analysis in FigG. 
+
+On the output we can see a clock and a reset which is at a value of zero. From this we can tell that the reset is active when it is high or at a value of one. We can also see hsync which is responsible for the horizontal alignment of the screen and vsync which is responsible for synchronising the refresh rate and frame rate of the screen, so we don’t see screen tearing []. We can also see the row and column changing and the values of the three color registers changing between 0 and f which is used in this case to represent 0000 and 1111.
+
 ![processed-37E39B11-F80F-4929-A3C0-83CAB8B4BC99](https://github.com/user-attachments/assets/fa548991-c6b9-414d-9b07-ec4d74d2f3e9)
+
+color cycle:
+
+![image](https://github.com/user-attachments/assets/030c42c9-9e93-411c-b0c7-70a5f9142dbe)
+
 ### **Synthesis**
 Describe the synthesis and implementation processes. Consider including 1/2 useful screenshot(s). Guideline: 1/2 short paragraphs.
 
@@ -100,6 +108,9 @@ If you get your own design working on the Basys3 board, take a picture! Guidelin
 
 ## **References**
 [1] M. Lynch, “SoC”, Lecture, ATU, Galway, 2024.
+
+[] T. Polanco, “What is VSync, and should you turn it on or off?
+”, 2024 [Online] Available: [Tom's Guide](https://www.tomsguide.com/features/what-is-vsync-and-should-you-turn-it-on-or-off) [Accessed 07/12/2024].
 
 
 ## **More Markdown Basics**
