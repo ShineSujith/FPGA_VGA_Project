@@ -22,13 +22,13 @@ To start we were given two verilog code templates along with a testbench and a d
 ### **Template Code**
 Outline the structure and design of the Verilog code templates you were given. What do they do? Include reference to how a VGA interface works. Guideline: 2/3 short paragraphs, consider including screenshot(s). 
 
-The first template (ColorCycle) used a state machine to change the current state of the code. Once the entire screen (480x640) was colored by writing a 12 bit value to the color register, it would change state to a different color. The first four bit of the register represent the red value, the middle four are the green value and the last four bits are the blue value. A count was used to wait a few seconds before changing the state so it would be visible to the human eye.
+The first template **ColorCycle** used a **state machine** to change the current state of the code (Fig2). Once the entire screen (480x640) was colored by writing a 12 bit value to the color register, it would change state to a different color. The first four bit of the register represent the red value, the middle four are the green value and the last four bits are the blue value. A count was used to wait a few seconds before changing the state so it would be visible to the human eye.
 
 ![processed-81E5C9A2-7114-47F4-B86C-36D499BD9F69](https://github.com/user-attachments/assets/cc953460-1735-486a-b36c-3e098141c3f8)
 
-The stripes code uses two additional inputs row and col. These inputs represent the row and column of the current pixel. Another difference is that stripes code uses three 4 bit color registers instead of one 12 bit register. In stripes if statements are used to change the color of the pixels. When the col value is within a certain range it writes a 4 bit value to three color registers one for each of the three colors.
+The second template **ColorStripes** uses two additional inputs row and col. These inputs represent the row and column of the current pixel. Another difference is that the stripes code uses three 4 bit color registers instead of one 12 bit register. In stripes **if statements** are used to change the color of the pixels. When the col value is within a certain range it writes a 4 bit value to three color registers one for each of the three colors.
 
-Both templates were like each other but also introduced new techniques to display an image. This was very useful when it came to creating my very own image. For example, they both had three registers to write too to change the color however one used a 12 bit register that was then split into three parts and written to three 4 bit registers on every positive clock edge while the other just assigns the three color register to another three color register on each positive clock edge.
+Both templates were similar but also introduced new techniques to display an image. This was very useful when it came to creating my very own image. For example, they both had three registers to write to, to change the color of the pixel however one used a 12 bit register that was then split into three parts and assigned to three 4 bit registers on every positive clock edge while the other just assigns the three color register to another three color register on each positive clock edge.
 
 ### **Simulation**
 
