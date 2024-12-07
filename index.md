@@ -6,13 +6,13 @@ categories: demo
 ---
 By: Shine Sujith
 
-Hello, This is my project for the module System on Chip Design and Verification (SoC). In this project I use VIvado to create, test and build a VGA design.
+Hello, This is my project for the module System on Chip Design and Verification (SoC) [1]. In this project I use Vivado to create, test and build a VGA (Video graphics array) design. VGA is a standard of video design introduced by IBM in 1987 [2]. 
 
 ## **Template VGA Design**
 ### **Project Set-Up**
 Summarise the project set-up and design flow. Include a screenshot of your own set-up, for example see the image of my Project Summary window below. Guideline 1 short paragraph.
 
-We were given a two different verilog code templates, One of the was called color cycle which cycled through different colors on the screen and another called stripes which diaplays those colors as stripes (columns) side by side on the screen. 
+To start we were given two verilog code templates along with a testbench and a design constraints file which we added to the project after creating it using Vivado. We had to set up the project on the C drive located on the computers in college because Vivado had some trouble writing to files located on OneDrive (Fig1.1). The first thing I did after adding my files to the project was moving the testbench into simulation sources since it was opened in design resources by default. Afterward I made sure the rest of the project heirachy was correct (Fig1.2). Initially we didn't have a clock set up, so we had to set one up in the clock wizard at a frequency of 25 Mega Hz. This frequency was chosen so we would not see any visable flickering. Once everything was set up I ran a simulation, synthesised, and impelmentation as well as generated a bitstream. I then connected to and programmed the board. I repeated this process for the second template but first I had to add some code into the VgaTop file to tell it to use the second template and not the first one.
 
 ![image](https://github.com/user-attachments/assets/ded24d46-4e81-489b-a733-083690a949c8)
 
@@ -20,11 +20,9 @@ We were given a two different verilog code templates, One of the was called colo
 
 
 ### **Template Code**
-Outline the structure and design of the Verilog code templates you were given. What do they do? Include reference to how a VGA interface works. Guideline: 2/3 short paragraphs, consider including screenshot(s).
+Outline the structure and design of the Verilog code templates you were given. What do they do? Include reference to how a VGA interface works. Guideline: 2/3 short paragraphs, consider including screenshot(s). 
 
-We were given a two different Verilog code templates, one of them was called ColorCycle which cycled through different colors on the screen, and another called ColorStripes which displays those colors as stripes (columns) side by side on the screen. 
-
-The first template (ColorCycle) used a state machine to change the current state of the code. Once the entire screen (480x640) was colored by writing a 12 bit value to the color register it would change state to a different color. The first four bit of the register represent the red value, the middle four are the green value and the last four bits are the blue value. A count was used to wait a few seconds before changing the state so it would be visible to the human eye.
+The first template (ColorCycle) used a state machine to change the current state of the code. Once the entire screen (480x640) was colored by writing a 12 bit value to the color register, it would change state to a different color. The first four bit of the register represent the red value, the middle four are the green value and the last four bits are the blue value. A count was used to wait a few seconds before changing the state so it would be visible to the human eye.
 
 ![processed-81E5C9A2-7114-47F4-B86C-36D499BD9F69](https://github.com/user-attachments/assets/cc953460-1735-486a-b36c-3e098141c3f8)
 
@@ -108,6 +106,8 @@ If you get your own design working on the Basys3 board, take a picture! Guidelin
 
 ## **References**
 [1] M. Lynch, “SoC”, Lecture, ATU, Galway, 2024.
+
+[] Wikipedia, "Video Graphics Array", [Online] Available: [VGA wikipedia](https://en.wikipedia.org/wiki/Video_Graphics_Array) [Accessed 07/12/2024].
 
 [] T. Polanco, “What is VSync, and should you turn it on or off?
 ”, 2024 [Online] Available: [Tom's Guide](https://www.tomsguide.com/features/what-is-vsync-and-should-you-turn-it-on-or-off) [Accessed 07/12/2024].
