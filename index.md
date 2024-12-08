@@ -30,7 +30,6 @@ The second template **ColorStripes** uses two additional inputs row and col. The
 Both templates were similar but also introduced new techniques to display an image. This was very useful when it came to creating my very own image. For example, they both had three registers to write to, to change the color of the pixel however one used a 12 bit register that was then split into three parts and assigned to three 4 bit registers on every positive clock edge while the other just assigns the three color register to another three color register on each positive clock edge.
 
 ### **Simulation**
-
 Explain the simulation process. Reference any important details, include a well-selected screenshot of the simulation. Guideline: 1/2 short paragraphs.
 
 The simulation process involves using a testbench to simulate the code. By doing this we can reduce the amount of time it takes to test the code. This is because if we want to run the code on the board, we must generate a new bit stream which involves running synthesis and implementing first before programming the board. This process takes time and must be done each time we make any changes to the code. It is much easier to run a simulation which only takes a few seconds. Using the simulation, we can get an idea of how the output might look like. In FigH we can see the output of a simulation or the waveform analysis in FigG. 
@@ -45,6 +44,10 @@ color cycle:
 
 ### **Synthesis**
 Describe the synthesis and implementation processes. Consider including 1/2 useful screenshot(s). Guideline: 1/2 short paragraphs.
+
+Synthesis and implementation are two very important step of the design flow. At first glance they appear to be the same how ever thay are quite different. Synthesis involves converting RTL ([Register Transfer Level](https://www.doulos.com/knowhow/verilog/rtl-verilog/)) code into a netlist and implementation uses this netlist and run optimization, placement and routing on it [].
+
+The **VGA Top architecute diagram** in FigL is a simplified version of the **schematic** in FigM. **Clk** and **rst** are inputs, clk is wired to the clock wizard which is used to generate a 25 Mega Hz clock. clk is also wired into ColorStripes or ColorCycle. VGA sync is responsible for generating a vsync and an hsync as well as a vidon signal along with a few other outputs that are passed into ColorStripes or ColorCycle where the main logic is performed. The outputs are hsync, vsync, and the three color registers. In FigN we can see an image of the device all the blue squares near the bottom left of the board are LUTs (Look Up Tables) being used to adust the rgb values and dispaly the design on the screen [].
 
 ![processed-28B6500B-BBC0-4A91-9F7F-55FD42A9083C](https://github.com/user-attachments/assets/63b79e85-6e86-4438-b18c-0f44fe19c3a2)
 
@@ -113,12 +116,15 @@ If you get your own design working on the Basys3 board, take a picture! Guidelin
 ![processed-FA5F6EB5-6C5E-40D0-AD3D-6E7DCAEFC484](https://github.com/user-attachments/assets/9264efcc-ed4b-462f-98cf-190f99cb69cb)
 
 ## **References**
-[1] M. Lynch, “SoC”, Lecture, ATU, Galway, 2024.
+[1] M. Lynch, "SoC", Lecture, ATU, Galway, 2024.
 
 [] Wikipedia, "Video Graphics Array", [Online] Available: [VGA wikipedia](https://en.wikipedia.org/wiki/Video_Graphics_Array) [Accessed 07/12/2024].
 
-[] T. Polanco, “What is VSync, and should you turn it on or off?
-”, 2024 [Online] Available: [Tom's Guide](https://www.tomsguide.com/features/what-is-vsync-and-should-you-turn-it-on-or-off) [Accessed 07/12/2024].
+[] T. Polanco, "What is VSync, and should you turn it on or off?", 2024 [Online] Available: [https://www.tomsguide.com/features/what-is-vsync-and-should-you-turn-it-on-or-off](https://www.tomsguide.com/features/what-is-vsync-and-should-you-turn-it-on-or-off) [Accessed 07/12/2024].
+
+[] AMD, "The difference between Implementation and Synthesis", [Online] Available: [https://adaptivesupport.amd.com/s/question/0D52E00006hpkc2SAA/the-difference-between-implementation-and-synthesize?language=en_US](https://adaptivesupport.amd.com/s/question/0D52E00006hpkc2SAA/the-difference-between-implementation-and-synthesize?language=en_US) [Accessed 08/12/2024].
+
+[] P. Inhofer,"What is a LUT(and how do you use a LUT)?", 2021 [Online] Available: [https://mixinglight.com/color-grading-tutorials/understanding-luts/](https://mixinglight.com/color-grading-tutorials/understanding-luts/) [Accessed 08/12/2024].
 
 
 ## **More Markdown Basics**
