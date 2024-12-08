@@ -173,9 +173,9 @@ Fig9.9 Final output (inverted)
 
 [3] Digilent, "Basys 3", [Online] Available: [https://digilent.com/reference/programmable-logic/basys-3/start?redirect=1](https://digilent.com/reference/programmable-logic/basys-3/start?redirect=1) [Accessed 08/12/2024].
 
-[3] T. Polanco, "What is VSync, and should you turn it on or off?", 2024 [Online] Available: [https://www.tomsguide.com/features/what-is-vsync-and-should-you-turn-it-on-or-off](https://www.tomsguide.com/features/what-is-vsync-and-should-you-turn-it-on-or-off) [Accessed 07/12/2024].
+[4] T. Polanco, "What is VSync, and should you turn it on or off?", 2024 [Online] Available: [https://www.tomsguide.com/features/what-is-vsync-and-should-you-turn-it-on-or-off](https://www.tomsguide.com/features/what-is-vsync-and-should-you-turn-it-on-or-off) [Accessed 07/12/2024].
 
-[4] AMD, "The difference between Implementation and Synthesis", [Online] Available: [https://adaptivesupport.amd.com/s/question/0D52E00006hpkc2SAA/the-difference-between-implementation-and-synthesize?language=en_US](https://adaptivesupport.amd.com/s/question/0D52E00006hpkc2SAA/the-difference-between-implementation-and-synthesize?language=en_US) [Accessed 08/12/2024].
+[5] AMD, "The difference between Implementation and Synthesis", [Online] Available: [https://adaptivesupport.amd.com/s/question/0D52E00006hpkc2SAA/the-difference-between-implementation-and-synthesize?language=en_US](https://adaptivesupport.amd.com/s/question/0D52E00006hpkc2SAA/the-difference-between-implementation-and-synthesize?language=en_US) [Accessed 08/12/2024].
 
-[5] P. Inhofer,"What is a LUT(and how do you use a LUT)?", 2021 [Online] Available: [https://mixinglight.com/color-grading-tutorials/understanding-luts/](https://mixinglight.com/color-grading-tutorials/understanding-luts/) [Accessed 08/12/2024].
+[6] P. Inhofer,"What is a LUT(and how do you use a LUT)?", 2021 [Online] Available: [https://mixinglight.com/color-grading-tutorials/understanding-luts/](https://mixinglight.com/color-grading-tutorials/understanding-luts/) [Accessed 08/12/2024].
 
