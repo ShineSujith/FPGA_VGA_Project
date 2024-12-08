@@ -66,6 +66,12 @@ Perhaps add a picture of your demo. Guideline: 1/2 sentences.
 
 ![processed-3CAAAD42-3530-4D62-A645-65E38B7A5CF4](https://github.com/user-attachments/assets/88f2f267-7b83-4da9-9b67-dfc1c6497c1c)
 
+![original-F0942EF8-6B20-451B-AFD8-20365A40162E](https://github.com/user-attachments/assets/e25c8cd1-6253-460a-bef2-4a55f86c8224)
+
+![original-6C403910-FDC3-4E9E-9A8B-14E0686C30DA](https://github.com/user-attachments/assets/044c894d-4f72-4301-b184-6e5d888178e8)
+
+![original-5CE57604-4EFA-4A78-8DD0-70804379F62D](https://github.com/user-attachments/assets/e9a47742-9beb-4f26-8035-49b1a61ebef9)
+
 ## **My VGA Design Edit**
 Introduce your own design idea. Consider how complex/achievabble this might be or otherwise. Reference any research you do online (use hyperlinks).
 
@@ -84,8 +90,6 @@ I used the ColorStripes code as the base and incoperated a state machine and del
 ![image](https://github.com/user-attachments/assets/991e8967-51e8-44b6-a689-31207f8de4aa)
 
 ![image](https://github.com/user-attachments/assets/0f7d9bd6-a859-46ec-9fe4-463606f2f64f)
-
-
 
 ### **Simulation**
 Show how you simulated your own design. Are there any things to note? Demonstrate your understanding. Add a screenshot. Guideline: 1-2 short paragraphs.
@@ -115,6 +119,18 @@ If you get your own design working on the Basys3 board, take a picture! Guidelin
 
 ![processed-FA5F6EB5-6C5E-40D0-AD3D-6E7DCAEFC484](https://github.com/user-attachments/assets/9264efcc-ed4b-462f-98cf-190f99cb69cb)
 
+![processed-C36172DE-07F8-4656-88D7-4323F40A0728](https://github.com/user-attachments/assets/4e059b95-e2f2-460b-a447-d84999f03868)
+
+![processed-532B3647-FABE-467A-AC7B-46C3F17C78A7](https://github.com/user-attachments/assets/fe5da82d-4101-4a33-9134-442399b27079)
+
+![processed-83FEA5B1-DA7E-45A2-98AC-C1DCC32A7907](https://github.com/user-attachments/assets/66c47b25-d45f-47b3-b00a-893224f0c681)
+
+![processed-9EE10D94-5F3B-4DA7-8EC2-A64C5223956C](https://github.com/user-attachments/assets/57fdccd8-2a54-4bc1-87c2-e285f9fb6761)
+
+![processed-7A661696-972F-4907-9B7D-01295F3E3761](https://github.com/user-attachments/assets/998d1da2-0841-4612-a937-8e8275e4e783)
+
+![processed-4D9C0AC7-89D9-4269-9997-313D02093A94](https://github.com/user-attachments/assets/2144ff2f-9ab9-42b4-a908-aad389c040a1)
+
 ## **References**
 [1] M. Lynch, "SoC", Lecture, ATU, Galway, 2024.
 
@@ -127,20 +143,5 @@ If you get your own design working on the Basys3 board, take a picture! Guidelin
 [] P. Inhofer,"What is a LUT(and how do you use a LUT)?", 2021 [Online] Available: [https://mixinglight.com/color-grading-tutorials/understanding-luts/](https://mixinglight.com/color-grading-tutorials/understanding-luts/) [Accessed 08/12/2024].
 
 
-## **More Markdown Basics**
-This is a paragraph. Add an empty line to start a new paragraph.
-
-Font can be emphasised as *Italic* or **Bold**.
-
-Code can be highlighted by using `backticks`.
-
-Hyperlinks look like this: [GitHub Help](https://help.github.com/).
-
-A bullet list can be rendered as follows:
-- vectors
-- algorithms
-- iterators
-
-Images can be added by uploading them to the repository in a /docs/assets/images folder, and then rendering using HTML via githubusercontent.com as shown in the example below.
 
 <img src="https://raw.githubusercontent.com/melgineer/fpga-vga-verilog/main/docs/assets/images/VGAPrjSrcs.png">
