@@ -6,7 +6,7 @@ categories: demo
 ---
 By: Shine Sujith
 
-Hello, this is my project for the module System on Chip Design and Verification (SoC) [1]. In this project I used Vivado to create, test and build a VGA (Video graphics array) design. VGA is a standard of video design introduced by IBM in 1987 [2]. 
+Hello, this is my project for the module System on Chip Design and Verification (SoC) [1]. In this project I used Vivado to create, test and build a VGA (Video graphics array) design. VGA is a standard of video design introduced by IBM in 1987 [2]. The board we used was the Basys 3 Artix-7 FPGA board [3].
 
 ## **Template VGA Design**
 ### **Project Set-Up**
@@ -33,7 +33,7 @@ The second template **ColorStripes** uses two additional inputs row and col. The
 ### **Simulation**
 The simulation process involves using a testbench to simulate the code. By doing this we can reduce the amount of time it takes to test the code. This is because if we want to run the code on the board, we must generate a new bit stream which involves running synthesis and implementing first before programming the board. This process takes time and must be done each time we make any changes to the code. It is much easier to run a simulation which only takes a few seconds. Using the simulation, we can get an idea of how the output might look like. In Fig3.2 we can see the output of a simulation or the waveform analysis box in Fig3.1. 
 
-On the output we can see a clock and a reset which is at a value of zero. From this we can tell that the reset is active when it is high or at a value of one. We can also see **hsync** which is responsible for the horizontal alignment of the screen and **vsync** which is responsible for synchronising the refresh rate and frame rate of the screen, so we don’t see screen tearing [3]. We can also see the row and column changing and the values of the three color registers changing between 0 and f which is used in this case to represent 0000 and 1111.
+On the output we can see a clock and a reset which is at a value of zero. From this we can tell that the reset is active when it is high or at a value of one. We can also see **hsync** which is responsible for the horizontal alignment of the screen and **vsync** which is responsible for synchronising the refresh rate and frame rate of the screen, so we don’t see screen tearing [4]. We can also see the row and column changing and the values of the three color registers changing between 0 and f which is used in this case to represent 0000 and 1111.
 
 ![processed-37E39B11-F80F-4929-A3C0-83CAB8B4BC99](https://github.com/user-attachments/assets/fa548991-c6b9-414d-9b07-ec4d74d2f3e9)
 
@@ -44,9 +44,9 @@ Fig3.1 Testbench architecture
 Fig3.2 ColorStripes simulation output
 
 ### **Synthesis**
-Synthesis and implementation are two very important step of the design flow. At first glance they appear to be the same however they are quite different. Synthesis involves converting RTL ([Register Transfer Level](https://www.doulos.com/knowhow/verilog/rtl-verilog/)) code into a netlist and implementation uses this netlist and run optimization, placement and routing on it [4].
+Synthesis and implementation are two very important step of the design flow. At first glance they appear to be the same however they are quite different. Synthesis involves converting RTL ([Register Transfer Level](https://www.doulos.com/knowhow/verilog/rtl-verilog/)) code into a netlist and implementation uses this netlist and run optimization, placement and routing on it [5].
 
-The **VGA Top architecture diagram** in Fig4.1 is a simplified version of the **schematic** in Fig4.2. **Clk** and **rst** are inputs, clk is wired to the clock wizard which is used to generate a 25 Mega Hz clock. clk is also wired into ColorStripes or ColorCycle. VGA sync is responsible for generating a vsync and an hsync as well as a vidon signal along with a few other outputs that are passed into ColorStripes or ColorCycle where the main logic is performed. The outputs are hsync, vsync, and the three color registers. In Fig4.3 we can see an image of the device all the blue squares near the bottom left of the board are LUTs (Look Up Tables) being used to adjust the rgb values and display the design on the screen [5].
+The **VGA Top architecture diagram** in Fig4.1 is a simplified version of the **schematic** in Fig4.2. **Clk** and **rst** are inputs, clk is wired to the clock wizard which is used to generate a 25 Mega Hz clock. clk is also wired into ColorStripes or ColorCycle. VGA sync is responsible for generating a vsync and an hsync as well as a vidon signal along with a few other outputs that are passed into ColorStripes or ColorCycle where the main logic is performed. The outputs are hsync, vsync, and the three color registers. In Fig4.3 we can see an image of the device all the blue squares near the bottom left of the board are LUTs (Look Up Tables) being used to adjust the rgb values and display the design on the screen [6].
 
 ![processed-28B6500B-BBC0-4A91-9F7F-55FD42A9083C](https://github.com/user-attachments/assets/63b79e85-6e86-4438-b18c-0f44fe19c3a2)
 
@@ -170,6 +170,8 @@ Fig9.9 Final output (inverted)
 [1] M. Lynch, "SoC", Lecture, ATU, Galway, 2024.
 
 [2] Wikipedia, "Video Graphics Array", [Online] Available: [https://en.wikipedia.org/wiki/Video_Graphics_Array](https://en.wikipedia.org/wiki/Video_Graphics_Array) [Accessed 07/12/2024].
+
+[3] Digilent, "Basys 3", [Online] Available: [https://digilent.com/reference/programmable-logic/basys-3/start?redirect=1](https://digilent.com/reference/programmable-logic/basys-3/start?redirect=1) [Accessed 08/12/2024].
 
 [3] T. Polanco, "What is VSync, and should you turn it on or off?", 2024 [Online] Available: [https://www.tomsguide.com/features/what-is-vsync-and-should-you-turn-it-on-or-off](https://www.tomsguide.com/features/what-is-vsync-and-should-you-turn-it-on-or-off) [Accessed 07/12/2024].
 
