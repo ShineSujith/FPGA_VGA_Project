@@ -6,11 +6,11 @@ categories: demo
 ---
 By: Shine Sujith
 
-Hello, this is my project for the module System on Chip Design and Verification (SoC) [1]. In this project I used Vivado to create, test and build a VGA (Video graphics array) design. VGA is a standard of video design introduced by IBM in 1987 [2]. The board we used was the Basys 3 Artix-7 FPGA board [3].
+Hello, this is my project for the module System on Chip Design and Verification (SoC) [1]. In this project I used Vivado to create, build and test a VGA (Video graphics array) design. VGA is a standard of video design introduced by IBM in 1987 [2]. The board we used was the Basys 3 Artix-7 FPGA board [3].
 
 ## **Template VGA Design**
 ### **Project Set-Up**
-To start we were given two Verilog code templates along with a testbench and a design constraints file which we added to the project after creating it using Vivado. We had to set up the project on the C drive located on the computers in college because Vivado had some trouble writing to files located on OneDrive (Fig1.1). The first thing I did after adding my files to the project was moving the testbench into simulation sources since it was opened in design resources by default. Afterward I made sure the rest of the project hierarchy was correct (Fig1.2). Initially we didn't have a clock set up, so we had to set one up in the clock wizard at a frequency of 25 Mega Hz. This frequency was chosen so we would not see any visible flickering. Once everything was set up I ran a simulation, synthesised, and implementation as well as generated a bitstream. I then connected to and programmed the board. I repeated this process for the second template but first I had to add some code into the VGA Top file to tell it to use the second template and not the first one.
+To start we were given two Verilog code templates along with a testbench and a design constraints file which we added to the project after creating it using Vivado. We had to set up the project on the C drive located on the computers in college because Vivado had some trouble writing to files located on OneDrive (Fig1.1). The first thing I did after adding my files to the project was moving the testbench into simulation sources since it was opened in design resources by default. Afterward I made sure the rest of the project hierarchy was correct (Fig1.2). Initially we didn't have a clock set up, so we had to set one up in the clock wizard at a frequency of 25 Mega Hz. This frequency was chosen so we would not see any visible flickering. Once everything was set up I ran a simulation, synthesis, and implementation on the design as well as generate a bitstream. I then connected to and programmed the board. I repeated this process for the second template but first I had to add some code into the VGA Top file to tell it to use the second template and not the first one.
 
 ![image](https://github.com/user-attachments/assets/ded24d46-4e81-489b-a733-083690a949c8)
 
@@ -21,11 +21,12 @@ Fig1.1 Project Summary
 Fig1.2 Project hierarchy
 
 ### **Template Code**
-Both templates were similar but also introduced new techniques to display an image. This was very useful when it came to creating my very own image. For example, they both had three registers to write to, to change the color of the pixel however one used a 12-bit register that was then split into three parts and assigned to three 4-bit registers on every positive clock edge while the other just assigns the three color register to another three color register on each positive clock edge.
+Both templates were similar but also introduced new techniques to display an image. This was very useful when it came to creating my very own image. For example, they both had three registers to write to, to change the color of a pixel however one used a 12-bit register that was then split into three parts and assigned to three 4-bit registers on every positive clock edge while the other just assigns the three registers to the three color register on each positive clock edge.
 
-The first template **ColorCycle** used a **state machine** to change the current state of the code (Fig2). Once the entire screen (480x640) was colored by writing a 12-bit value to the color register, it would change state to a different color. The first four bit of the register represent the red value, the middle four are the green value and the last four bits are the blue value. A count was used to wait a few seconds before changing the state so it would be visible to the human eye.
+The first template **ColorCycle** used a **state machine** to change the current state of the code (Fig2). Once the entire screen (480x640) was colored by writing a 12-bit value to the color register, it would change state to a different color. The first four bits of the register represent the red value, the middle four are the green value and the last four bits are the blue value. A count was used to wait a few seconds before changing the state so it would be visible to the human eye.
 
 ![processed-81E5C9A2-7114-47F4-B86C-36D499BD9F69](https://github.com/user-attachments/assets/cc953460-1735-486a-b36c-3e098141c3f8)
+
 Fig2 States of ColorCycle code
 
 The second template **ColorStripes** uses two additional inputs row and col. These inputs represent the row and column of the current pixel. Another difference is that the stripes code uses three 4-bit color registers instead of one 12-bit register. In stripes **if statements** are used to change the color of the pixels. When the col value is within a certain range it writes a 4-bit value to three color registers one for each of the three colors.
