@@ -18,7 +18,7 @@ Fig1.1 Project Summary
 
 ![image](https://github.com/user-attachments/assets/5a1233ce-f7c1-4c04-91aa-212e3d4bcbf4)
 
-Fig1.2 Project hierarchy
+Fig1.2 Project Hierarchy
 
 ### **Template Code**
 Both templates were similar but also introduced new techniques to display an image. This was very useful when it came to creating my very own image. For example, they both had three registers to write to, to change the color of a pixel however one used a 12-bit register that was then split into three parts and assigned to three 4-bit registers on every positive clock edge while the other just assigns the three registers to the three color register on each positive clock edge.
@@ -27,7 +27,7 @@ The first template **ColorCycle** used a **state machine** to change the current
 
 ![processed-81E5C9A2-7114-47F4-B86C-36D499BD9F69](https://github.com/user-attachments/assets/cc953460-1735-486a-b36c-3e098141c3f8)
 
-Fig2 States of ColorCycle code
+Fig2 States of ColorCycle Code
 
 The second template **ColorStripes** uses two additional inputs row and col. These inputs represent the row and column of the current pixel. Another difference is that the stripes code uses three 4-bit color registers instead of one 12-bit register. In stripes **if statements** are used to change the color of the pixels. When the col value is within a certain range it writes a 4-bit value to three color registers one for each of the three colors.
 
@@ -38,16 +38,16 @@ On the output we can see a clock and a reset which is at a value of zero. From t
 
 ![processed-37E39B11-F80F-4929-A3C0-83CAB8B4BC99](https://github.com/user-attachments/assets/fa548991-c6b9-414d-9b07-ec4d74d2f3e9)
 
-Fig3.1 Testbench architecture
+Fig3.1 Testbench Architecture
 
 ![image](https://github.com/user-attachments/assets/030c42c9-9e93-411c-b0c7-70a5f9142dbe)
 
-Fig3.2 ColorStripes simulation output
+Fig3.2 ColorStripes Simulation Output
 
 ### **Synthesis**
-Synthesis and implementation are two very important step of the design flow. At first glance they appear to be the same however they are quite different. Synthesis involves converting RTL ([Register Transfer Level](https://www.doulos.com/knowhow/verilog/rtl-verilog/)) code into a netlist and implementation uses this netlist and run optimization, placement and routing on it [5].
+Synthesis and implementation are two very important step of the design flow. At first glance they appear to be the same however they are quite different. Synthesis involves converting RTL ([Register Transfer Level](https://www.doulos.com/knowhow/verilog/rtl-verilog/)) code into a netlist and implementation involves using this netlist by runing optimization, placement and routing on it [5].
 
-The **VGA Top architecture diagram** in Fig4.1 is a simplified version of the **schematic** in Fig4.2. **Clk** and **rst** are inputs, clk is wired to the clock wizard which is used to generate a 25 Mega Hz clock. clk is also wired into ColorStripes or ColorCycle. VGA sync is responsible for generating a vsync and an hsync as well as a vidon signal along with a few other outputs that are passed into ColorStripes or ColorCycle where the main logic is performed. The outputs are hsync, vsync, and the three color registers. In Fig4.3 we can see an image of the device all the blue squares near the bottom left of the board are LUTs (Look Up Tables) being used to adjust the rgb values and display the design on the screen [6].
+The **VGA Top architecture diagram** in Fig4.1 is a simplified version of the **schematic** in Fig4.2. **Clk** and **rst** are inputs, clk is wired to the clock wizard which is used to generate a 25 Mega Hz clock. clk is also wired to ColorStripes or ColorCycle. VGA sync is responsible for generating a vsync and an hsync as well as a vidon signal along with a few other outputs that are passed into ColorStripes or ColorCycle where the main logic is performed. The outputs are hsync, vsync, and the three color registers. In Fig4.3 we can see an image of the device, all the blue squares near the bottom left of the board are LUTs (Look Up Tables) being used to adjust the rgb values and display the design on the screen [6].
 
 ![processed-28B6500B-BBC0-4A91-9F7F-55FD42A9083C](https://github.com/user-attachments/assets/63b79e85-6e86-4438-b18c-0f44fe19c3a2)
 
